@@ -43,15 +43,20 @@ function Ingredient() {
       console.log(`details for ${ingredientName}`, ingredientDetails);
     },
     view: function () {
-      let amountComponent = m("span.badge", "N/A");
+      let formattedFirstAmount;
       if (ingredientDetails && ingredientDetails.amounts) {
-        let singleAmount = ingredientDetails.amounts[0];
-        amountComponent = m("span.badge badge-primary", `${singleAmount.amount} ${singleAmount.unit}`);
+        const firstAmount = ingredientDetails.amounts[0];
+        formattedFirstAmount = <small>{`${firstAmount.amount} ${firstAmount.unit}`}</small>;
       }
-      return m("li.list-group-item d-flex justify-content-between align-items-center", [
-        m("p", ingredientName),
-        amountComponent,
-      ]);
+      return (
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{ingredientName}</h5>
+            {formattedFirstAmount}
+          </div>
+          {ingredientDetails && ingredientDetails.notes && <small class="text-muted">{ingredientDetails.notes}</small>}
+        </div>
+      );
     }
   }
 };
