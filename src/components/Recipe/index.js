@@ -34,15 +34,24 @@ function IngredientList() {
 };
 
 function Ingredient() {
-  var ingredient;
   var ingredientName;
+  var ingredientDetails;
   return {
     oninit: function (vnode) {
-      ingredient = vnode.attrs.ingredient;
-      ingredientName = Object.keys(ingredient)[0];
+      ingredientName = Object.keys(vnode.attrs.ingredient)[0];
+      ingredientDetails = vnode.attrs.ingredient[ingredientName];
+      console.log(`details for ${ingredientName}`, ingredientDetails);
     },
     view: function () {
-      return m("li.list-group-item", ingredientName);
+      let amountComponent = m("span.badge", "N/A");
+      if (ingredientDetails && ingredientDetails.amounts) {
+        let singleAmount = ingredientDetails.amounts[0];
+        amountComponent = m("span.badge badge-primary", `${singleAmount.amount} ${singleAmount.unit}`);
+      }
+      return m("li.list-group-item d-flex justify-content-between align-items-center", [
+        m("p", ingredientName),
+        amountComponent,
+      ]);
     }
   }
 };
