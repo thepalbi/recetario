@@ -1,3 +1,4 @@
+import Nav from "../../components/Nav";
 import Recipe from "../../components/Recipe";
 import { Recipe as RecipeType } from "../../interfaces";
 import { getRecipeByName, getRecipeNames } from "../../utils";
@@ -5,6 +6,7 @@ import { getRecipeByName, getRecipeNames } from "../../utils";
 export default function RecipePage({ recipe }: { recipe: RecipeType }) {
   return (
     <div className='container'>
+      <Nav></Nav>
       <div className="row mt-2 mb-1 recipe-title">
         <h3>{recipe.name}</h3>
       </div>

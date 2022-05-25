@@ -10,7 +10,8 @@ function Recipe({ recipe }: RecipeProps) {
     <>
       <IngredientList ingredients={recipe.ingredients}></IngredientList>
       <StepList steps={recipe.steps}></StepList>
-      <Notes notes={recipe.notes}></Notes>
+      {recipe.notes != '' ? <Notes notes={recipe.notes}></Notes> : null}
+
     </>
   );
 }
@@ -20,7 +21,7 @@ function Notes({ notes }: { notes: string }) {
     <div className='card mb-3'>
       <div className='card-header'>
         <h4 className='pt-2'>
-          <button className='btn btn-link' type='button' data-toggle='collapse' data-target="#collapsableIngredients">
+          <button className='btn' type='button' data-toggle='collapse' data-target="#collapsableIngredients">
             Notas
           </button>
         </h4>
@@ -43,7 +44,7 @@ const ListWithTitle = <T extends JSX.Element,>({ title, itemsList }: React.Props
   <div className='card mb-3'>
     <div className='card-header'>
       <h4 className='pt-2'>
-        <button className='btn btn-link' type='button' data-toggle='collapse' data-target="#collapsableIngredients">
+        <button className='btn' type='button' data-toggle='collapse' data-target="#collapsableIngredients">
           {title}
         </button>
       </h4>
