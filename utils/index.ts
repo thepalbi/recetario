@@ -2,7 +2,6 @@ import { parse } from 'yaml';
 import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import { NamedIngredient, ORFRecipe, Recipe } from '../interfaces';
-import { FLOW_END } from 'yaml/dist/parse/cst';
 
 function getRecipesDir() {
   return path.join(process.cwd(), `recipes/`);

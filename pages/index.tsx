@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Recipe } from '../interfaces';
 import { getRecipes, WrappedRecipe } from '../utils';
 
 const HomePage = ({ recipes }: { recipes: WrappedRecipe[] }) => {
