@@ -1,15 +1,25 @@
 export type Recipe = {
   recipe_name: string
-  ingredients: NamedIngredients,
+  ingredients: NamedIngredient[],
   steps: Step[]
 };
 
-export type NamedIngredients = { [name: string]: IngredientDetails | undefined };
+export type ORFRecipe = {
+  recipe_name: string
+  ingredients: ORFNamedIngredients[],
+  steps: Step[]
+}
+
+export type ORFNamedIngredients = { [name: string]: IngredientDetails | undefined };
 
 export type IngredientDetails = {
-  amounts: Amount[] | undefined,
+  amounts: Amount[],
   notes: string,
 }
+
+export type NamedIngredient = {
+  name: string,
+} & IngredientDetails;
 
 export type Amount = {
   amount: number,

@@ -2,27 +2,16 @@ import * as React from 'react';
 import { Recipe as RecipeType } from '../interfaces';
 import Recipe from './Recipe';
 
-function Home() {
-  let someTestRecipe: RecipeType = {
-    recipe_name: "falafel",
-    ingredients: {
-      "Perejil": {
-        amounts: [
-          {
-            amount: 1,
-            unit: "parte"
-          }
-        ],
-        notes: "Picar en brunoise pequeña.",
-      }
-    },
-    steps: [],
-  };
+type HomeProps = {
+  recipes: RecipeType[],
+}
+
+function Home({ recipes }: HomeProps) {
   return (
     <div className='container'>
       <h1>Recetario</h1>
       <div className='row'>
-        <Recipe recipe={someTestRecipe} ></Recipe>
+        {recipes.map(r => <Recipe key={r.recipe_name} recipe={r}></Recipe>)}
       </div>
     </div>
   )

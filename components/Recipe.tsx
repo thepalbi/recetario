@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Recipe, IngredientDetails, NamedIngredients } from '../interfaces';
+import { Recipe, IngredientDetails, NamedIngredient } from '../interfaces';
 
 type RecipeProps = {
   recipe: Recipe
@@ -15,26 +15,24 @@ function Recipe({ recipe }: RecipeProps) {
 }
 
 type IngredientListProps = {
-  ingredients: NamedIngredients,
+  ingredients: NamedIngredient[],
 }
 
 function IngredientList({ ingredients }: IngredientListProps) {
   return (
     <ul className='list-group list-group-flush'>
-      {Object.keys(ingredients).map(name =>
-        <Ingredient name={name} details={ingredients[name]}></Ingredient>
-      )}
+      {ingredients.map(i => <Ingredient key={i.name} ingredient={i}></Ingredient>)}
     </ul>
   )
 }
 
 type IngredientProps = {
-  name: string,
-  details: IngredientDetails | undefined,
+  ingredient: NamedIngredient,
 }
 
-function Ingredient({ name, details }: IngredientProps) {
+function Ingredient({ ingredient }: IngredientProps) {
   let formattedFirstAmount;
+  let details = ingredient as IngredientDetails;
   let hasAmount = details && details.amounts && details.amounts.length > 0;
   let hasNotes = details && details.notes;
   if (hasAmount) {
@@ -44,7 +42,7 @@ function Ingredient({ name, details }: IngredientProps) {
   return (
     <div className="list-group-item list-group-item-action flex-column align-items-start">
       <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-1">{name}</h5>
+        <h5 className="mb-1">{ingredient.name}</h5>
         {formattedFirstAmount}
       </div>
       {hasNotes && <small className="text-muted">{details.notes}</small>}
