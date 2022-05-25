@@ -1,5 +1,7 @@
+import { resourceUsage } from 'process';
+import { func } from 'prop-types';
 import * as React from 'react';
-import { Recipe, IngredientDetails, NamedIngredient } from '../interfaces';
+import { Recipe, IngredientDetails, NamedIngredient, Step } from '../interfaces';
 
 type RecipeProps = {
   recipe: Recipe
@@ -9,6 +11,7 @@ function Recipe({ recipe }: RecipeProps) {
   return <div className='card'>
     <div className='card-body'>
       <IngredientList ingredients={recipe.ingredients}></IngredientList>
+      <StepList steps={recipe.steps}></StepList>
     </div>
   </div>;
 }
@@ -50,6 +53,27 @@ function Ingredient({ ingredient }: IngredientProps) {
       {hasNotes && <small className="text-muted">{details.notes}</small>}
     </div>
   )
+}
+
+function StepList({ steps }: { steps: Step[] }) {
+  return (
+    <>
+      <h4 className='mt-3'>Pasos</h4>
+      <ul className='list-group'>
+        {steps.map((s, i) =>
+          <Step key={i} step={s}></Step>
+        )}
+      </ul>
+    </>
+  )
+}
+
+function Step({ step }: { step: Step }) {
+  return (
+    <li className='list-group-item'>
+      {step.step}
+    </li>
+  );
 }
 
 export default Recipe;
