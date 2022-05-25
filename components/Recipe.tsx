@@ -12,8 +12,18 @@ function Recipe({ recipe }: RecipeProps) {
     <div className='card-body'>
       <IngredientList ingredients={recipe.ingredients}></IngredientList>
       <StepList steps={recipe.steps}></StepList>
+      <Notes notes={recipe.notes}></Notes>
     </div>
   </div>;
+}
+
+function Notes({ notes }: { notes: string }) {
+  return (
+    <>
+      <h4 className='mt-3'>Notas</h4>
+      <p>{notes}</p>
+    </>
+  )
 }
 
 type IngredientListProps = {
