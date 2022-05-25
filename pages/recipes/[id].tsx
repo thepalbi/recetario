@@ -5,14 +5,19 @@ import { getRecipeByName, getRecipeNames } from "../../utils";
 export default function RecipePage({ recipe }: { recipe: RecipeType }) {
   return (
     <div className='container'>
-      <div className="row">
+      <div className="row mt-2 mb-1 recipe-title">
         <h3>{recipe.name}</h3>
       </div>
-      <div className='row'>
+      <div className='row justify-content-center'>
         <div className="col-md-9 pt-20 pb-20">
           <Recipe recipe={recipe}></Recipe>
         </div>
       </div>
+      <style jsx>{`
+      .recipe-title {
+        text-align: center;
+      }
+    `}</style>
     </div>
   )
 }
