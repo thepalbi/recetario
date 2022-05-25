@@ -8,13 +8,13 @@ type RecipeProps = {
 }
 
 function Recipe({ recipe }: RecipeProps) {
-  return <div className='card'>
-    <div className='card-body'>
+  return (
+    <>
       <IngredientList ingredients={recipe.ingredients}></IngredientList>
       <StepList steps={recipe.steps}></StepList>
       <Notes notes={recipe.notes}></Notes>
-    </div>
-  </div>;
+    </>
+  );
 }
 
 function Notes({ notes }: { notes: string }) {
@@ -32,12 +32,22 @@ type IngredientListProps = {
 
 function IngredientList({ ingredients }: IngredientListProps) {
   return (
-    <>
-      <h4>Ingredientes</h4>
-      <ul className='list-group list-group-flush'>
-        {ingredients.map(i => <Ingredient key={i.name} ingredient={i}></Ingredient>)}
-      </ul>
-    </>
+    <div className='card'>
+      <div className='card-header'>
+        <h4 className='pt-2'>
+          <button className='btn btn-link' type='button' data-toggle='collapse' data-target="#collapsableIngredients">
+            Ingredientes
+          </button>
+        </h4>
+      </div>
+      <div className='collapse show' id='collapsableIngredients'>
+        <div className='card-body'>
+          <ul className='list-group list-group-flush'>
+            {ingredients.map(i => <Ingredient key={i.name} ingredient={i}></Ingredient>)}
+          </ul>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -57,7 +67,7 @@ function Ingredient({ ingredient }: IngredientProps) {
   return (
     <div className="list-group-item list-group-item-action flex-column align-items-start">
       <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-1">{ingredient.name}</h5>
+        <strong>{ingredient.name}</strong>
         {formattedFirstAmount}
       </div>
       {hasNotes && <small className="text-muted">{details.notes}</small>}

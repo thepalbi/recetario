@@ -5,9 +5,13 @@ import { getRecipeByName, getRecipeNames } from "../../utils";
 export default function RecipePage({ recipe }: { recipe: RecipeType }) {
   return (
     <div className='container'>
-      <h3 className="mt-3 mb-3">{recipe.name}</h3>
+      <div className="row">
+        <h3>{recipe.name}</h3>
+      </div>
       <div className='row'>
-        <Recipe recipe={recipe}></Recipe>
+        <div className="col-md-9 pt-20 pb-20">
+          <Recipe recipe={recipe}></Recipe>
+        </div>
       </div>
     </div>
   )
