@@ -25,7 +25,7 @@ export async function getRecipeByName(name: string) {
       });
       return ingredients[0];
     }),
-    notes: parsedRecipe.notes,
+    notes: parsedRecipe.notes ?? '',
   };
 
   return convertedRecipe;

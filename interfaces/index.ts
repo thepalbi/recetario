@@ -9,7 +9,7 @@ export type ORFRecipe = {
   recipe_name: string
   ingredients: ORFNamedIngredients[],
   steps: Step[],
-  notes: string
+  notes: string | undefined
 }
 
 export type ORFNamedIngredients = { [name: string]: IngredientDetails | undefined };
