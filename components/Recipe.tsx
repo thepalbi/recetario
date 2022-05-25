@@ -8,7 +8,6 @@ type RecipeProps = {
 function Recipe({ recipe }: RecipeProps) {
   return <div className='card'>
     <div className='card-body'>
-      <h3 className='card-header'>{recipe.recipe_name}</h3>
       <IngredientList ingredients={recipe.ingredients}></IngredientList>
     </div>
   </div>;
@@ -20,9 +19,12 @@ type IngredientListProps = {
 
 function IngredientList({ ingredients }: IngredientListProps) {
   return (
-    <ul className='list-group list-group-flush'>
-      {ingredients.map(i => <Ingredient key={i.name} ingredient={i}></Ingredient>)}
-    </ul>
+    <>
+      <h4>Ingredientes</h4>
+      <ul className='list-group list-group-flush'>
+        {ingredients.map(i => <Ingredient key={i.name} ingredient={i}></Ingredient>)}
+      </ul>
+    </>
   )
 }
 

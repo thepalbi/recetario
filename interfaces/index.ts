@@ -1,5 +1,5 @@
 export type Recipe = {
-  recipe_name: string
+  name: string
   ingredients: NamedIngredient[],
   steps: Step[]
 };

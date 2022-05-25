@@ -1,42 +1,28 @@
-import type { NextPage } from 'next'
-import Home from '../components/Home'
-import { parse } from 'yaml';
-import { readFile } from 'fs/promises';
-import { NamedIngredient, ORFRecipe, Recipe } from '../interfaces';
-import * as path from 'path';
+import Link from 'next/link';
+import { getRecipeNames } from '../utils';
 
-const HomePage = ({ recipes }: { recipes: Recipe[] }) => {
+const HomePage = ({ recipeNames }: { recipeNames: string[] }) => {
   return (
-    <Home recipes={recipes}></Home>
+    <div className='container'>
+      <h1 className='mt-3'>Recetario</h1>
+      <div className='row'>
+        {recipeNames.map(name =>
+          <Link key={name} href={`/recipes/${name}`}>
+            {name}
+          </Link>)}
+      </div>
+    </div>
   )
 }
 
 export async function getStaticProps() {
-  const sampleRecipeContents = await readFile(path.join(process.cwd(), "recipes/chimichurri.yaml"));
-  const parsedRecipe = parse(sampleRecipeContents.toString()) as ORFRecipe;
-
-  const convertedRecipe: Recipe = {
-    recipe_name: parsedRecipe.recipe_name,
-    steps: parsedRecipe.steps,
-    ingredients: parsedRecipe.ingredients.map(namedIngredients => {
-      let ingredients = Object.keys(namedIngredients).map(name => {
-        let ingredient: NamedIngredient = {
-          name: name,
-          amounts: namedIngredients[name]?.amounts ?? [],
-          notes: namedIngredients[name]?.notes ?? '',
-        };
-        return ingredient;
-      });
-      return ingredients[0];
-    }),
-  };
-
-  console.log("parsed recipe:", JSON.stringify(parsedRecipe));
+  const recipeNames = await getRecipeNames();
+  console.log("recipe names in home:", recipeNames);
   return {
     props: {
-      recipes: [convertedRecipe],
+      recipeNames
     }
-  }
+  };
 }
 
 export default HomePage
