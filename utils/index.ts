@@ -2,13 +2,14 @@ import { parse } from 'yaml';
 import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import { NamedIngredient, ORFRecipe, Recipe } from '../interfaces';
+import { FLOW_END } from 'yaml/dist/parse/cst';
 
 function getRecipesDir() {
   return path.join(process.cwd(), `recipes/`);
 }
 
-export async function getRecipeByName(name: string) {
-  const sampleRecipeContents = await readFile(path.join(getRecipesDir(), `${name}.yaml`));
+async function doGetRecipe(path: string) {
+  const sampleRecipeContents = await readFile(path);
   const parsedRecipe = parse(sampleRecipeContents.toString()) as ORFRecipe;
 
   const convertedRecipe: Recipe = {
@@ -29,6 +30,31 @@ export async function getRecipeByName(name: string) {
   };
 
   return convertedRecipe;
+}
+
+export type WrappedRecipe = {
+  diskName: string,
+  recipe: Recipe,
+}
+
+export async function getRecipes() {
+  const recipesDir = getRecipesDir();
+  const recipeFilenames = await readdir(recipesDir);
+  const wrappedRecipes = await Promise.all(
+    recipeFilenames.map(async (filename) => {
+      const recipePath = path.join(recipesDir, filename);
+      return {
+        diskName: filename.replace(/\.yaml$/, ''),
+        recipe: await doGetRecipe(recipePath),
+      };
+    })
+  );
+  return wrappedRecipes;
+}
+
+export async function getRecipeByName(name: string) {
+  const recipePath = path.join(getRecipesDir(), `${name}.yaml`);
+  return doGetRecipe(recipePath);
 }
 
 export async function getRecipeNames() {

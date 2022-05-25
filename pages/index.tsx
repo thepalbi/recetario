@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import { getRecipeNames } from '../utils';
+import { Recipe } from '../interfaces';
+import { getRecipes, WrappedRecipe } from '../utils';
 
-const HomePage = ({ recipeNames }: { recipeNames: string[] }) => {
+const HomePage = ({ recipes }: { recipes: WrappedRecipe[] }) => {
   return (
     <div className='container'>
       <h1 className='mt-3'>Recetario</h1>
       <div className='row'>
-        {recipeNames.map(name =>
-          <Link key={name} href={`/recipes/${name}`}>
-            {name}
+        {recipes.map((r, i) =>
+          <Link key={i} href={`/recipes/${r.diskName}`}>
+            {r.recipe.name}
           </Link>)}
       </div>
     </div>
@@ -16,11 +17,10 @@ const HomePage = ({ recipeNames }: { recipeNames: string[] }) => {
 }
 
 export async function getStaticProps() {
-  const recipeNames = await getRecipeNames();
-  console.log("recipe names in home:", recipeNames);
+  const recipes = await getRecipes();
   return {
     props: {
-      recipeNames
+      recipes
     }
   };
 }
