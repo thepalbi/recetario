@@ -1,0 +1,62 @@
+recipe_name: Empanadas de carne
+ingredients:
+  - Pimentón dulce:
+      amounts:
+        - amount: 1
+          unit: cda
+  - Cebolla de verdeo:
+      amounts:
+        - amount: 4
+          unit: unidades
+      notes: Ciselar en diagonal.
+  - Semillas de cómino:
+      amounts:
+        - amount: 1
+          unit: cda
+      notes: Hace falta tostarlas?
+  - Cebolla:
+      amounts:
+        - amount: 1
+          unit: kg
+      notes: Picar en brunnoise.
+  - Grasa:
+      amounts:
+        - amount: 0
+          unit: grs
+      notes: |
+        La receta original (Doli) dice de cerdo. Conseguí de res. Se puede mezlar con otra materia grasa para alivianar.
+        Derretir la grasa y filtrar previamente para utilizar en la cocción.
+  - Bola de lomo de res:
+      amounts:
+        - amount: 800
+          unit: grs
+      notes: La receta original (Doli) dice lomo. Es lo que conseguí.
+  - Huevo:
+      amounts:
+        - amount: 5
+          unit: unidades
+      notes: Hervir hasta huevo duro. Picar con un tenedor.
+  - Discos de empanada:
+      amounts:
+        - amount: 30
+          unit: unidades
+      notes: La Salteña criolla para hornear.
+  - Sal:
+      notes: Cantidad necesaria.
+steps:
+  - step: Poner la materia grasa en una sartén. Calentar y sofreír la cebolla en ella, a fuego bajo.
+  - step: |
+      Cortar la carne de res en pequeños cubos.
+      Colocar sobre un tamiz. Blanquear con agua hirviendo en dos pasadas (pasar por agua hirviendo, mover los trozos, volver a blanquear).
+  - step: Tostar el cómino en una sartén de teflon. Moler.
+  - step: Condimentar la cebolla con ají mólido, pimentón dulce y picante y el cómino molido. Colocar las especias con la materia grasa en caliente.
+  - step: Cocinar la cebolla hasta que tome coloración leve, pero mantenga estructura. Apagar el fuego.
+  - step: Incorporar la carne. Dejar enfríar y reservar.
+  - step: |
+      Preparar el relleno en un recipiente de la siguiente forma para el armado: relleno de carne, cebolla de verdeo picada, huevo duro picado.
+  - step: Armar las empanadas, tratando de agarrar parte de cada unas de las capas del relleno armado en el paso anterior.
+  - step: |
+      Hornear con horno precalentado a 200C. Solo se tiene que cocinar la masa, ya que el relleno está precocido.
+      Apróximadamente 15 a 20 minutos.
+notes: |
+  Basado en la receta de empanadas de carne cortada a cuchillo de Doli. https://elgourmet.com/receta/empanadas-de-carne-2
