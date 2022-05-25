@@ -1,27 +1,18 @@
 recipe_name: Empanadas de carne
 ingredients:
-  - Pimentón dulce:
-      amounts:
-        - amount: 1
-          unit: cda
   - Cebolla de verdeo:
       amounts:
-        - amount: 4
+        - amount: 6
           unit: unidades
       notes: Ciselar en diagonal.
-  - Semillas de cómino:
-      amounts:
-        - amount: 1
-          unit: cda
-      notes: Hace falta tostarlas?
   - Cebolla:
       amounts:
-        - amount: 1
+        - amount: 1.25
           unit: kg
       notes: Picar en brunnoise.
   - Grasa:
       amounts:
-        - amount: 0
+        - amount: 150
           unit: grs
       notes: |
         La receta original (Doli) dice de cerdo. Conseguí de res. Se puede mezlar con otra materia grasa para alivianar.
@@ -33,7 +24,7 @@ ingredients:
       notes: La receta original (Doli) dice lomo. Es lo que conseguí.
   - Huevo:
       amounts:
-        - amount: 5
+        - amount: 6
           unit: unidades
       notes: Hervir hasta huevo duro. Picar con un tenedor.
   - Discos de empanada:
@@ -43,6 +34,21 @@ ingredients:
       notes: La Salteña criolla para hornear.
   - Sal:
       notes: Cantidad necesaria.
+  - Pimentón dulce:
+      amounts:
+        - amount: 2
+          unit: cda
+  - Pimentón picante:
+      amounts:
+        - amount: 0.5
+          unit: cda
+  - Ají mólido:
+      notes: Cantidad necesaria, ya que el pimentón picante aporta mucho.
+  - Semillas de cómino:
+      amounts:
+        - amount: 1.5
+          unit: cda
+      notes: Tostar hasta que libere aroma, dejar enfriar y moler.
 steps:
   - step: Poner la materia grasa en una sartén. Calentar y sofreír la cebolla en ella, a fuego bajo.
   - step: |
