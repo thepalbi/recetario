@@ -1,0 +1,37 @@
+recipe_name: WIP - Mbeju
+ingredients:
+  - Fécula de mandioca:
+      amounts:
+        - amount: 250
+          unit: grs
+  - Manteca:
+      amounts:
+        - amount: 100
+          unit: grs
+      notes: Puede temperatura de heladera, o ambiente.
+  - Queso mar del plata:
+      amounts:
+        - amount: 150
+          unit: grs
+      notes: |
+        Revisar esta cantidad. La iteración pasada usé 100grs, cortado en trozos no tan grandes.
+  - Leche:
+      notes: Si a al granulado resultante le falta ligar, agregar leche que contiene más materia grasa que agua.
+  - Salpi:
+      notes: A gusto. No escatimar.
+steps:
+  - step: |
+      Colocar todos los ingredidentes en un bowl. Con las palmas de las manos, estrujar / apretar y desarmar los ingredientes grasos
+      en conjunto con la fécula de mandioca. De esta forma, estos deberian ir desermandaso y formando grumos con la fécula.
+  - step: Una vez desarmados los grasos, con las dos manos pulverizar toda la preparación, formando una especie de arena.
+  - step: |
+      Calentar una sartén a temperatura media. Cuando este caliente, espolvorear suficiente mezcla para cubrir el fondo de la misma.
+      Con una cuchara ir pisando los bordes para dar forma. Cuando este dorada la parte inferior, dar vuelta y cocinar a punto deseado.
+      Retirar.
+    notes: |
+      La idea es que la cocción no sea a fuego fuerte, de manera que lleve un tiempo medio y llegue a dorarse la preparación, y derretirse
+      tanto la manteca como el queso.
+
+
+notes: |
+  Video referencia: https://www.youtube.com/watch?v=-Be_RbaefkM
