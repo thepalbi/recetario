@@ -30,4 +30,5 @@ export type Amount = {
 
 export type Step = {
   step: string
+  notes?: string
 }

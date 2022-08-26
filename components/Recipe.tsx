@@ -1,3 +1,4 @@
+import { css } from '@emotion/css';
 import * as React from 'react';
 import { Recipe, IngredientDetails, NamedIngredient, Step } from '../interfaces';
 
@@ -108,7 +109,20 @@ function StepList({ steps }: { steps: Step[] }) {
 function Step({ step }: { step: Step }) {
   return (
     <li className='list-group-item'>
+      <div>
       {step.step}
+      </div>
+      {step.notes && (
+        <div className={css`
+          background-color: #f7f0b7;
+          padding: 8px;
+          margin-top: 5px;
+          border-radius: 5px;
+          box-shadow: 3px 3px 3px #f0f0f0;
+        `}>
+          {step.notes}
+        </div>
+      )}
     </li>
   );
 }

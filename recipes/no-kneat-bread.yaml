@@ -1,0 +1,26 @@
+recipe_name: No-kneat bread (pan sin amasado)
+ingredients:
+  - Harina 000:
+      amounts:
+        - amount: 430
+          unit: grs
+  - Agua:
+      amounts:
+        - amount: 345
+          unit: grs
+  - Levadura seca:
+      amounts:
+        - amount: 1
+          unit: grs
+      notes: (1/4 de tsp)
+  - Sal fina:
+      amounts:
+        - amount: 8
+          unit: grs
+steps:  
+  - step: Mezclar todos los ingredientes hasta que queden incorporados. Tapar con papel filmTapar con papel film. Reservar de 12hs a 18hs.
+    notes: Siempre reservar ~10% del agua ya que la absorción de la harina es muy variable.
+  - step: Florear mesada, bajar la masa y doblar sobre si misma 2 o 3 veces. Tapar y dejar descansar 15min.
+  - step: Formar la masa. Usar un recipiente con la forma deseada, cubrir con un paño floreado, y colocar la masa sobre el mismo de forma delicada. Florear la superficie y cubrir. Dejar descansar 2hs.
+    note: Por lo menos 30min antes de pasado el tiempo, pre-calentar el horno, junto con una olla de fundición.
+  - step: Pasado el tiempo retirar la olla caliente, y con cuidad colocar el pan dentro de la misma. Darle una leve sacudida para que el pan se acomode. Hornear por 30min tapado, y 15/20min destapado.
