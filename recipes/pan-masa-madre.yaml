@@ -1,0 +1,35 @@
+recipe_name: "[WIP] Pan de masa madre (Francisco Saubert)"
+ingredients:
+  - Harina 000:
+      amounts:
+        - amount: 350
+          unit: grs
+  - Harinas integral:
+      amounts:
+        - amount: 150
+          unit: grs
+  - Harinas varias:
+      amounts:
+        - amount: 80
+          unit: grs
+  - Agua:
+      amounts:
+        - amount: 350
+          unit: grs
+      notes: |
+        Con esta cantidad de agua, y asumiendo que la masa madre esta de 50/50%, la hidratación total del pan sería 71%.
+        Como cualquier pan, utilizar el 90% de del líquido y medir a ojo el resto dependiendo de la absorción de la harina.
+        Recomendable para arrancar, 60%.
+  - Masa madre:
+      amounts:
+        - amount: 125
+          unit: grs
+      notes: 125 grs. por cada medio kilo de harina.
+  - Sal fina:
+      amounts:
+        - amount: 11
+          unit: grs
+steps:  
+  - step: Disolver la masa madre en el agua. Agregar las harinas una por una, empezando por las integrales. Cada vez que incorporó una, revolver hasta que esté homogeneo.
+  - step: Amasar hasta que la masa quede unificada. Dejar reposar alrededor de 30 minutos. Pasado el tiempo revisar que forme ventana (estirar y corroborar que la masa sea transparente).
+  - step: Pasado el tiempo, agregar la sal. Presionar como si fuera una focaccia, pero de manera delicada para no forzar el gluten. Luego realizar un primer pliegue. Bajarlo a la mesa, darle borma de bollo y dejarlo fermentar en bloque entre 2 y 3 horas.
