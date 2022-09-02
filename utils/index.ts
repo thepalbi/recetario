@@ -40,13 +40,15 @@ export async function getRecipes() {
   const recipesDir = getRecipesDir();
   const recipeFilenames = await readdir(recipesDir);
   const wrappedRecipes = await Promise.all(
-    recipeFilenames.map(async (filename) => {
-      const recipePath = path.join(recipesDir, filename);
-      return {
-        diskName: filename.replace(/\.yaml$/, ''),
-        recipe: await doGetRecipe(recipePath),
-      };
-    })
+    recipeFilenames
+      .filter(rn => rn.endsWith(".yaml"))
+      .map(async (filename) => {
+        const recipePath = path.join(recipesDir, filename);
+        return {
+          diskName: filename.replace(/\.yaml$/, ''),
+          recipe: await doGetRecipe(recipePath),
+        };
+      })
   );
   return wrappedRecipes;
 }
@@ -59,5 +61,18 @@ export async function getRecipeByName(name: string) {
 export async function getRecipeNames() {
   const recipeFilenames = await readdir(getRecipesDir());
   console.log("recipe filenames", recipeFilenames);
-  return recipeFilenames.map(filename => filename.replace(/\.yaml$/, ''));
+  return recipeFilenames
+    .filter(rn => rn.endsWith(".yaml"))
+    .map(filename => filename.replace(/\.yaml$/, ''));
+}
+
+export interface ExternalRecipe {
+  title: string,
+  url: string,
+}
+
+export async function getExternalRecipes() {
+  const externalRecipesPath = path.join(getRecipesDir(), `external.json`);
+  const contents = await readFile(externalRecipesPath);
+  return JSON.parse(contents.toString()) as ExternalRecipe[];
 }
